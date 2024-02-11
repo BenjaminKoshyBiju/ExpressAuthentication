@@ -17,7 +17,7 @@
     "test": "nyc mocha --timeout=60000 --exit",
     "lint": "eslint \"**/*.js\"",
     "prepare": "cross-env NODE_ENV=%NODE_ENV% npm run prepare-husky",
-    "prepare-husky": "if \"%NODE_ENV%\" neq \"production\" husky install",
+    "prepare-husky": "if [ \"$NODE_ENV\" != \"production\" ] && command -v husky > /dev/null; then husky install; fi",
     "scss": "sass --no-source-map --load-path=./ --update ./public/css:./public/css",
     "lintStage": "node_modules/.bin/lint-staged"
   },
